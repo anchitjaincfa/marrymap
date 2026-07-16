@@ -387,9 +387,11 @@ dialog::backdrop { background: rgba(24, 44, 45, 0.45); }
   .topbar { height: 60px; padding: 0 18px; }
   .breadcrumb { display: none; }
   .topbar-actions { margin-left: auto; }
-  .page-content { padding: 34px 18px 55px; }
-  .hero-row { display: block; }
+  .page-content { width: 100%; max-width: 100%; padding: 34px 18px 55px; overflow-x: hidden; }
+  .hero-row { display: block; width: 100%; min-width: 0; }
+  .hero-row > div:first-child, h1 { width: 100%; max-width: 100%; min-width: 0; }
   .countdown { width: 100%; margin-top: 18px; }
+  .signal-grid, .signal-card { width: 100%; min-width: 0; }
   h1 { font-size: 35px; }
   .hero-copy { font-size: 14px; }
   .countdown { min-width: 80px; padding: 10px; }
