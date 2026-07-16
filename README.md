@@ -2,7 +2,7 @@
 
 A calm, approval-first planning cockpit for couples coordinating a wedding without a full-service planner.
 
-**Live app:** deployment link will be added after Vercel completes the remote build.
+**Live app:** https://marrymap-phi.vercel.app
 
 ## What this prototype does
 
