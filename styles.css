@@ -388,7 +388,8 @@ dialog::backdrop { background: rgba(24, 44, 45, 0.45); }
   .breadcrumb { display: none; }
   .topbar-actions { margin-left: auto; }
   .page-content { padding: 34px 18px 55px; }
-  .hero-row { align-items: flex-start; }
+  .hero-row { display: block; }
+  .countdown { width: 100%; margin-top: 18px; }
   h1 { font-size: 35px; }
   .hero-copy { font-size: 14px; }
   .countdown { min-width: 80px; padding: 10px; }
