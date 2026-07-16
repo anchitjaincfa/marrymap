@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Marrymap keeps a DIY wedding plan, budget, vendor decisions, and approvals in one calm workspace." />
+    <title>Marrymap | Wedding planning, without the second job</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Workspace navigation">
+        <a class="brand" href="#overview" aria-label="Marrymap home">
+          <span class="brand-mark">m</span>
+          <span>marrymap</span>
+        </a>
+        <div class="wedding-switcher">
+          <span class="eyebrow">Your wedding</span>
+          <strong>Jamie &amp; Morgan</strong>
+          <span class="muted">October 18, 2026</span>
+          <button class="icon-button" id="edit-wedding" type="button" aria-label="Edit wedding details" title="Edit wedding details"><i data-lucide="pencil"></i></button>
+        </div>
+        <nav class="side-nav">
+          <a class="active" href="#overview"><i data-lucide="layout-dashboard"></i><span>Overview</span></a>
+          <a href="#plan"><i data-lucide="calendar-check-2"></i><span>Plan</span><b id="nav-task-count">4</b></a>
+          <a href="#budget"><i data-lucide="wallet-cards"></i><span>Budget</span><b class="risk-count" id="nav-risk-count">2</b></a>
+          <a href="#vendors"><i data-lucide="store"></i><span>Vendors</span></a>
+          <a href="#messages"><i data-lucide="mail"></i><span>Messages</span></a>
+        </nav>
+        <div class="sidebar-footer">
+          <button class="text-button" id="reset-demo" type="button"><i data-lucide="rotate-ccw"></i> Reset demo</button>
+          <span class="demo-chip"><i data-lucide="flask-conical"></i> Demo workspace</span>
+        </div>
+      </aside>
+      <main>
+        <header class="topbar">
+          <button class="mobile-menu icon-button" id="mobile-menu" type="button" aria-label="Toggle navigation" title="Toggle navigation"><i data-lucide="menu"></i></button>
+          <div class="breadcrumb"><span>Jamie &amp; Morgan</span><i data-lucide="chevron-right"></i><strong>Week 15</strong></div>
+          <div class="topbar-actions">
+            <button class="icon-button" id="notifications" type="button" aria-label="View notifications" title="View notifications"><i data-lucide="bell"></i><span class="notification-dot"></span></button>
+            <button class="avatar" type="button" aria-label="Open account menu" title="Account">JM</button>
+          </div>
+        </header>
+        <section class="page-content" id="overview">
+          <div class="hero-row">
+            <div>
+              <p class="eyebrow">Wednesday, July 16</p>
+              <h1>A clear plan for the next <em>seven days.</em></h1>
+              <p class="hero-copy">You are 94 days out. Finish the two vendor decisions below and your September plan stays on track.</p>
+            </div>
+            <div class="countdown" aria-label="94 days to wedding"><strong>94</strong><span>days to go</span></div>
+          </div>
+          <section class="signal-grid" aria-label="Wedding status">
+            <article class="signal-card plan-signal">
+              <div class="signal-heading"><span class="signal-icon mint"><i data-lucide="check-check"></i></span><span>Weekly plan</span></div>
+              <strong><span id="done-count">3</span> of <span id="total-count">7</span> complete</strong>
+              <div class="progress-track"><span id="plan-progress" style="width: 43%"></span></div>
+              <button class="card-link" data-scroll="#plan" type="button">Open this week <i data-lucide="arrow-up-right"></i></button>
+            </article>
+            <article class="signal-card budget-signal">
+              <div class="signal-heading"><span class="signal-icon coral"><i data-lucide="receipt"></i></span><span>Budget</span></div>
+              <strong><span id="budget-remaining">$4,760</span> still unassigned</strong>
+              <span class="small-copy"><span id="budget-spent">$28,240</span> committed of $33,000</span>
+              <button class="card-link" data-scroll="#budget" type="button">Review budget <i data-lucide="arrow-up-right"></i></button>
+            </article>
+            <article class="signal-card risk-signal">
+              <div class="signal-heading"><span class="signal-icon gold"><i data-lucide="triangle-alert"></i></span><span>Needs a decision</span></div>
+              <strong><span id="open-risks">2</span> items need you</strong>
+              <span class="small-copy">One is due before Friday.</span>
+              <button class="card-link" id="focus-risks" type="button">See decisions <i data-lucide="arrow-up-right"></i></button>
+            </article>
+          </section>
+          <section class="section-block" id="plan">
+            <div class="section-header">
+              <div><p class="eyebrow">Your planning runway</p><h2>This week's plan</h2></div>
+              <div class="week-controls" aria-label="Change planning week">
+                <button class="icon-button" id="previous-week" type="button" aria-label="Previous week" title="Previous week"><i data-lucide="chevron-left"></i></button>
+                <strong id="week-label">Jul 14 - Jul 20</strong>
+                <button class="icon-button" id="next-week" type="button" aria-label="Next week" title="Next week"><i data-lucide="chevron-right"></i></button>
+              </div>
+            </div>
+            <div class="plan-layout">
+              <div class="task-list" id="task-list" aria-live="polite"></div>
+              <aside class="weekly-note">
+                <span class="note-icon"><i data-lucide="sparkles"></i></span>
+                <p class="eyebrow">Coordinator note</p>
+                <h3>Make one choice, not five.</h3>
+                <p>Your photography shortlist is ready. Compare the two quotes on the same scope before asking anyone else for availability.</p>
+                <button class="secondary-button" id="view-vendors" type="button">Compare photographers <i data-lucide="arrow-right"></i></button>
+              </aside>
+            </div>
+          </section>
+          <section class="section-block budget-section" id="budget">
+            <div class="section-header">
+              <div><p class="eyebrow">Money, without surprise</p><h2>Budget health</h2></div>
+              <button class="primary-button" id="add-expense" type="button"><i data-lucide="plus"></i> Add expense</button>
+            </div>
+            <div class="budget-layout">
+              <article class="budget-overview">
+                <div class="budget-numbers"><span>Planned budget</span><strong id="total-budget">$33,000</strong><button class="icon-button" id="edit-budget" type="button" aria-label="Edit total budget" title="Edit total budget"><i data-lucide="pencil"></i></button></div>
+                <div class="budget-ring" role="img" aria-label="86 percent of budget committed"><span><b id="budget-percent">86%</b><small>committed</small></span></div>
+                <dl><div><dt>Committed</dt><dd id="summary-committed">$28,240</dd></div><div><dt>Unassigned</dt><dd id="summary-unassigned">$4,760</dd></div></dl>
+              </article>
+              <div class="budget-categories" id="budget-categories"></div>
+            </div>
+            <p class="data-note"><i data-lucide="info"></i> Demo ranges are illustrative only. Production ranges should be localized, sourced, dated, and shown with confidence.</p>
+          </section>
+          <section class="section-block" id="vendors">
+            <div class="section-header">
+              <div><p class="eyebrow">Make a confident call</p><h2>Vendor decisions</h2></div>
+              <button class="secondary-button" id="draft-new-email" type="button"><i data-lucide="mail-plus"></i> Draft inquiry</button>
+            </div>
+            <div class="vendor-layout">
+              <article class="decision-card">
+                <div class="decision-top"><span class="vendor-category">Photography</span><span class="status urgent">Decision due Friday</span></div>
+                <h3>Choose a photographer</h3>
+                <p>Both options include an 8-hour package. The real tradeoff is a second shooter versus an engagement session.</p>
+                <div class="vendor-compare" id="photographer-compare"></div>
+                <button class="secondary-button" id="compare-photographers" type="button">Open full comparison <i data-lucide="arrow-right"></i></button>
+              </article>
+              <article class="decision-card compact-decision">
+                <div class="decision-top"><span class="vendor-category">Florals</span><span class="status review">Quote review</span></div>
+                <h3>Quote is 12% above your plan</h3>
+                <p>Orchid &amp; Stem's $4,200 proposal is $450 over the category target. Ask for a seasonal substitute before cutting the reception arrangement.</p>
+                <button class="secondary-button" id="review-floral-email" type="button">Review draft reply <i data-lucide="arrow-right"></i></button>
+              </article>
+            </div>
+          </section>
+          <section class="section-block message-section" id="messages">
+            <div class="section-header">
+              <div><p class="eyebrow">Approval before action</p><h2>Ready for your review</h2></div>
+              <button class="text-button" id="copy-summary" type="button"><i data-lucide="copy"></i> Copy weekly summary</button>
+            </div>
+            <div class="message-list">
+              <article class="message-item"><span class="message-icon"><i data-lucide="mail"></i></span><div><strong>Reply to Orchid &amp; Stem</strong><p>Ask whether a seasonal substitute can bring the proposal closer to $3,750.</p></div><span class="message-meta">Ready now</span><button class="icon-button open-message" data-message="floral" type="button" aria-label="Review floral vendor reply" title="Review draft"><i data-lucide="arrow-right"></i></button></article>
+              <article class="message-item"><span class="message-icon"><i data-lucide="mail"></i></span><div><strong>Inquire with Studio East</strong><p>Confirm October 18 availability and request their 2026 sample timeline.</p></div><span class="message-meta">Ready now</span><button class="icon-button open-message" data-message="photo" type="button" aria-label="Review photographer inquiry" title="Review draft"><i data-lucide="arrow-right"></i></button></article>
+              <article class="message-item muted-message"><span class="message-icon"><i data-lucide="clock-3"></i></span><div><strong>Venue insurance certificate</strong><p>Waiting on your venue's specific COI requirements before drafting.</p></div><span class="message-meta">Blocked</span></article>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+    <dialog id="action-dialog" aria-labelledby="dialog-title">
+      <form method="dialog" id="dialog-form">
+        <div class="dialog-header"><div><p class="eyebrow" id="dialog-eyebrow">Marrymap</p><h2 id="dialog-title">Review</h2></div><button class="icon-button" value="cancel" aria-label="Close dialog" title="Close"><i data-lucide="x"></i></button></div>
+        <div id="dialog-body"></div>
+        <div class="dialog-actions" id="dialog-actions"></div>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
